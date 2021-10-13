@@ -74,6 +74,7 @@ public class Ejercicio01 {
 				break;
 				
 			case 4:
+				ordenarParesImpares(myArray);
 				mostrarArray(myArray);
 				break;
 			}
@@ -155,5 +156,28 @@ public class Ejercicio01 {
 		System.out.println("El número más bajo es: " + numeroMasBajo); 
 	}
 	
+	/* ordenarParesImpares(double[] valores) : 
+	 * Ordena y retorna el array situando primero todos los números pares
+	 *  y luego los impares */
 	
+	public static void ordenarParesImpares(double[] valores) { 
+		/*Creo un nuevo array para guardar los valores ordenados del tamaño del array pasado como parámetro*/
+		double [] nuevoArray= new double[valores.length];
+		int posicionIzquierda=0; //contador para los números pares
+		int posicionDerecha=valores.length-1; //contador para los números impares
+		/**/
+		for(int i=0; i<valores.length; i++) {
+			
+			if(valores[i]%2==0) {//Si el resto es 0 es que es par
+				nuevoArray[posicionIzquierda]=valores[i];
+				posicionIzquierda++;
+			}else {
+				nuevoArray[posicionDerecha]=valores[i];
+				posicionDerecha--;
+			}
+		}
+		System.out.println("Los valores del array ordenados.");
+		mostrarArray(nuevoArray);
+		System.out.println();
+	}
 }
