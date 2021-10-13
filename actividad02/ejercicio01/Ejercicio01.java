@@ -1,4 +1,4 @@
-
+package acvitivda02;
 
 import java.util.Scanner;
 
@@ -64,10 +64,12 @@ public class Ejercicio01 {
 				break;
 				
 			case 2:
+				sumarValores(myArray);
 				mostrarArray(myArray);
 				break;
 				
 			case 3:
+				menorYmayor(myArray);
 				mostrarArray(myArray);
 				break;
 				
@@ -84,7 +86,8 @@ public class Ejercicio01 {
 		/*Cerramos el Scanner */
 		sc.close();	
 	}
-	/*Cada vez que se realice la operación 1, 2, 3 y 4 se ha de mostrar por pantalla los valores almacenados en el array.  */
+	/*Cada vez que se realice la operación 1, 2, 3 y 4 
+	 * se ha de mostrar por pantalla los valores almacenados en el array.  */
 	public static void mostrarArray(double[] valores) {
 		/*Mostramos el array por consola*/
 		System.out.println("Los valores contenidos en el array son:" );
@@ -95,6 +98,10 @@ public class Ejercicio01 {
 	}
 	
 	
+	/*modificarUnValor(double[] valores) : 
+	 * en este caso se pedirá qué posición del array se quiere modificar 
+	 * y su nuevo valor numérico entre 0 y 100 para situarlo en la posición indicada
+	 * A continuación se deben mostrar todos los valores almacenados en el array.*/
 	public static double[] modificarUnValor(double[] valores) {
         int posicionArray=0;
         double valorNuevo=0;
@@ -116,5 +123,37 @@ public class Ejercicio01 {
 		return valores;
 	}
 		
+	
+	/*sumarValores(double[] valores) : 
+	 * Sumar todos los números almacenados en el array y mostrar el resultado. */
+	public static void sumarValores(double[] valores) {
+		double sumaValoresAlmacenados=0;
+		for(int i=0;i<valores.length; i++ ) {
+			sumaValoresAlmacenados +=valores[i];
+			
+		}
+		System.out.println("El resultado de sumar todos los valores del array es: " + sumaValoresAlmacenados); 
+	}
+	
+	/*menorYmayor(double[] valores) : 
+	 * muestra el número más  alto y el más bajo almacenados en el array. */
+	public static void menorYmayor(double[] valores) {
+		/*Empiezo a valora a partir del primer valor del array*/
+		double numeroMasAlto=valores [0];
+		double numeroMasBajo=valores [0];
+		for(int i=0;i<valores.length; i++ ) {
+			/*Si el valor actual del array es mayor que el numeroMasAlto lo guardo*/
+			if(valores [i] > numeroMasAlto) {
+				numeroMasAlto = valores[i];
+            }
+			/*Si el valor actual del array es menor que el numeroMasBajo lo guardo*/
+            if(valores[i]<numeroMasBajo) {
+            	numeroMasBajo = valores[i];
+            }		
+		}
+		System.out.println("El número más alto es: " + numeroMasAlto); 
+		System.out.println("El número más bajo es: " + numeroMasBajo); 
+	}
+	
 	
 }
